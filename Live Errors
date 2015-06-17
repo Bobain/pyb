@@ -1,0 +1,39 @@
+1) Kraken get_depth :
+
+Traceback (most recent call last):
+  File "./manage.py", line 34, in <module>
+    launch_watcher()
+  File "./manage.py", line 19, in launch_watcher
+    exec(open("./pyb/strategy/watcher.py").read())
+  File "<string>", line 23, in <module>
+  File "<string>", line 11, in get_orderbooks
+  File "/home/tonigor/pyb/pyb/api/restful/stdapi.py", line 190, in get_depth
+    ret = self._q_public('Depth', {'pair': self.sym_pair, 'count': 20000})
+  File "/home/tonigor/pyb/pyb/api/restful/stdapi.py", line 172, in _q_public
+    ret = self.api_conn.query_public('POST', submethod, req)
+  File "/home/tonigor/pyb/pyb/api/restful/kraken/api.py", line 74, in query_public
+    return self._query(method, self.prefix_public_req + submethod, req)
+  File "/home/tonigor/pyb/pyb/api/restful/kraken/api.py", line 59, in _query
+    ret = self.conn._request(method, url, req, headers)
+  File "/home/tonigor/pyb/pyb/api/restful/kraken/connection.py", line 49, in _request
+    response = self.conn.getresponse()
+  File "/usr/lib/python3.4/http/client.py", line 1147, in getresponse
+    response.begin()
+  File "/usr/lib/python3.4/http/client.py", line 351, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python3.4/http/client.py", line 321, in _read_status
+    raise BadStatusLine(line)
+http.client.BadStatusLine: ''
+
+2)
+
+Traceback (most recent call last):
+  File "./manage.py", line 34, in <module>
+    launch_watcher()
+  File "./manage.py", line 19, in launch_watcher
+    exec(open("./pyb/strategy/watcher.py").read())
+  File "<string>", line 23, in <module>
+  File "<string>", line 11, in get_orderbooks
+  File "/home/tonigor/pyb/pyb/api/restful/stdapi.py", line 192, in get_depth
+    assert ret['asks'][0][0] < ret['asks'][1][0]
+IndexError: list index out of range
